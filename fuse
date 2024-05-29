@@ -1,0 +1,94 @@
+task.wait(120)
+
+_G.autoFuse = false
+
+--[[
+    PET_NAME should not have any prefixes like Golden, Rainbow, Shiny
+    local Fuse = {
+        ["PET_NAME"] = {
+            { ["_fam"] = 100 },
+            { ["_fam"] = 100, ["sh"] = true },
+            { ["_fam"] = 100, ["pt"] = 1 },
+            { ["_fam"] = 100, ["pt"] = 1, ["sh"] = true },
+            { ["_fam"] = 100, ["pt"] = 2 },
+            { ["_fam"] = 100, ["pt"] = 2, ["sh"] = true }
+        }
+    }
+]]
+local Fuse = {
+    ["Wireframe Dog"] = {
+        { ["_fam"] = 41, ["pt"] = 2 }
+    },
+    ["Wireframe Cat"] = {
+        { ["_fam"] = 25, ["pt"] = 2 }
+    }
+}
+
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local Library = require(ReplicatedStorage:WaitForChild('Library'))
+
+local totalCount, doneCount
+
+local function updateFuse()
+    totalCount, doneCount = 0, 0
+
+    local Pet = Library.Save.Get().Inventory.Pet
+
+    for id, petData in pairs(Pet) do
+        for name,fuseConfigs in pairs(Fuse) do
+            for i,fuseConfig in ipairs(fuseConfigs) do
+                if petData["id"] == name and petData["pt"] == fuseConfig["pt"] and petData["sh"] == fuseConfig["sh"] then
+                    totalCount = totalCount + 1
+                    if petData["_am"] < fuseConfig["_fam"] then
+                        Fuse[name][i]["done"] = true
+                        doneCount = doneCount + 1
+                    else
+                        Fuse[name][i]["id"] = id
+                        Fuse[name][i]["_am"] = petData["_am"]
+                        Fuse[name][i]["done"] = false
+                    end
+                end
+            end
+        end
+    end
+
+    return doneCount < totalCount
+end
+
+if _G.autoFuse then
+    local status = false
+
+    repeat task.wait() until updateFuse()
+
+    while _G.autoFuse do
+        for name,fuseConfigs in pairs(Fuse) do
+            for i,fuseConfig in ipairs(fuseConfigs) do
+                if fuseConfig["done"] then
+                    continue
+                else
+                    if fuseConfig["_am"] < fuseConfig["_fam"] then
+                        Fuse[name][i]["done"] = true
+                        doneCount = doneCount + 1
+                        continue
+                    end
+                end
+                local args = {
+                    [1] = {
+                        [fuseConfig["id"]] = fuseConfig["_fam"]
+                    }
+                }
+                repeat
+                    status = ReplicatedStorage.Network.FuseMachine_Activate:InvokeServer(unpack(args))
+                    task.wait(0.5)
+                until status
+                if status then
+                    Fuse[name][i]["_am"] = fuseConfig["_am"] - fuseConfig["_fam"]
+                    status = false
+                end
+            end
+        end
+        if doneCount >= totalCount then
+            repeat task.wait() until updateFuse()
+        end
+    end
+end
