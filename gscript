@@ -11,8 +11,6 @@ _G.GIGNORE_SLEDRACE = false
 _G.GPOTIONS = {"Damage","Coins","Lucky","Treasure Hunter","Diamonds","Walkspeed","The Cocktail"}
 _G.GPOTIONS_MAX_TIER = 10
 _G.GENCHANTS = {}
-_G.GWEBHOOK_USERID = "798895543648387102"
-_G.GWEBHOOK_LINK = "https://discord.com/api/webhooks/1247456586549563393/BfTNSAExycLWMMPP-M8gsBeGgXJ20iRolWZtBAu3BbNkMq2Qwd4qDHpNeR4mLaeI2-0P"
 _G.GCOLLECT_VENDING_MACHINES = true
 _G.GCOLLECT_FREE_ITEMS = true
 
