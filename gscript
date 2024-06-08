@@ -20,8 +20,6 @@ _G.GCOLLECT_VENDING_MACHINES = true
 _G.GCOLLECT_FREE_ITEMS = true
 ]]
 
-script_key = "QarqvKGzLvsrBMUxXvhdamTbPYeWlCnB";
-
 _G.GPROGRESS_MODE = "Hatch"  -- By default hatches every 2.3 sec ( 2300ms)
 _G.GZONE_TO = 999
 
@@ -37,4 +35,5 @@ _G.GENCHANTS = {}
 _G.GHOLD_GIFTS = false
 _G.GHOLD_BUNDLES = false
 
+script_key = "QarqvKGzLvsrBMUxXvhdamTbPYeWlCnB";
 loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/34915da4ad87a5028e1fd64efbe3543f.lua"))()
