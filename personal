@@ -57,7 +57,7 @@ end
 if _G.teleportToBestArea then
     task.wait(5)
     if game.PlaceId == 17503543197 then
-        ReplicatedStorage.Network.Teleports_RequestTeleport:InvokeServer("Volcano Island")
+        ReplicatedStorage.Network.Teleports_RequestTeleport:InvokeServer("Hacker Matrix")
     end
 end
 
