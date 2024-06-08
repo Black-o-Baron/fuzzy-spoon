@@ -1,16 +1,39 @@
+--[[
 _G.GPROGRESS_MODE = "Hybrid"
+
 _G.GGFX_MODE = 1
+
 _G.GRANK_TO = 29
 _G.GZONE_TO = 209
 _G.GMAX_EGG_SLOTS = 99
 _G.GMAX_EQUIP_SLOTS = 99
-_G.GHOLD_GIFTS = false
-_G.GHOLD_BUNDLES = false
-_G.GMAX_ZONE_UPGRADE_COST = 100000
 _G.GIGNORE_SLEDRACE = false
+_G.GMAX_ZONE_UPGRADE_COST = 100000
+
 _G.GPOTIONS = {"Damage","Coins","Lucky","Treasure Hunter","Diamonds","Walkspeed","The Cocktail"}
 _G.GPOTIONS_MAX_TIER = 10
 _G.GENCHANTS = {}
+
+_G.GHOLD_GIFTS = false
+_G.GHOLD_BUNDLES = false
+_G.GCOLLECT_VENDING_MACHINES = true
+_G.GCOLLECT_FREE_ITEMS = true
+]]
+
+_G.GPROGRESS_MODE = "Hatch"  -- By default hatches every 2.3 sec ( 2300ms)
+
+_G.GGFX_MODE = 1
+
+_G.GMIN_EGGS_TO_HATCH = 1000  --  When farming for coins always farm untill we can hatch this amount of eggs
+_G.GMIN_FARM_TIME =  60 -- when farming, the seconds between checks if we already have enough coins to go hatch.
+_G.GMAX_HATCH = 999 -- can be used to decrease the amount of eggs to hatch in 1 request, for example if you can hatch 80 but with your autofarm GP can sustain endless hatching at 70. 
+
+_G.GPOTIONS = {"Damage","Coins","Lucky","Treasure Hunter","Diamonds","Walkspeed","The Cocktail","Huge"}
+_G.GPOTIONS_MAX_TIER = 10
+_G.GENCHANTS = {}
+
+_G.GHOLD_GIFTS = false
+_G.GHOLD_BUNDLES = false
 _G.GCOLLECT_VENDING_MACHINES = true
 _G.GCOLLECT_FREE_ITEMS = true
 
