@@ -21,13 +21,18 @@ _G.GCOLLECT_FREE_ITEMS = true
 ]]
 
 _G.GPROGRESS_MODE = "Hatch"  -- By default hatches every 2.3 sec ( 2300ms)
-_G.GSPECIAL_HATCH = "Summer Sun Egg"
 _G.GZONE_TO = 999
+
+_G.GSPECIAL_HATCH = "Summer Sun Egg"
+_G.GHATCH_SPEED_MS = 1250
 
 _G.GGFX_MODE = 1
 
 _G.GPOTIONS = {"Damage","Coins","Lucky","Treasure Hunter","Diamonds","Walkspeed","The Cocktail","Huge"}
 _G.GPOTIONS_MAX_TIER = 10
 _G.GENCHANTS = {}
+
+_G.GHOLD_GIFTS = false
+_G.GHOLD_BUNDLES = false
 
 loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/34915da4ad87a5028e1fd64efbe3543f.lua"))()
