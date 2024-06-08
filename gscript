@@ -20,6 +20,8 @@ _G.GCOLLECT_VENDING_MACHINES = true
 _G.GCOLLECT_FREE_ITEMS = true
 ]]
 
+script_key = "QarqvKGzLvsrBMUxXvhdamTbPYeWlCnB";
+
 _G.GPROGRESS_MODE = "Hatch"  -- By default hatches every 2.3 sec ( 2300ms)
 _G.GZONE_TO = 999
 
