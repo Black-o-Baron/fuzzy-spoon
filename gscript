@@ -1,4 +1,6 @@
---[[ _G.GPROGRESS_MODE = "Hybrid"
+--[[
+========================================================================================================
+_G.GPROGRESS_MODE = "Hybrid"
 
 _G.GGFX_MODE = 1
 
@@ -14,9 +16,9 @@ _G.GPOTIONS_MAX_TIER = 10
 _G.GENCHANTS = {}
 
 _G.GHOLD_GIFTS = false
-_G.GHOLD_BUNDLES = false ]]
-script_key = "QarqvKGzLvsrBMUxXvhdamTbPYeWlCnB";
---[[ _G.GPROGRESS_MODE = "Hatch"
+_G.GHOLD_BUNDLES = false
+========================================================================================================
+_G.GPROGRESS_MODE = "Hatch"
 _G.GZONE_TO = 999
 
 _G.GSPECIAL_HATCH = "Summer Sun Egg"
@@ -29,7 +31,10 @@ _G.GPOTIONS_MAX_TIER = 10
 _G.GENCHANTS = {}
 
 _G.GHOLD_GIFTS = false
-_G.GHOLD_BUNDLES = false ]]
+_G.GHOLD_BUNDLES = false
+========================================================================================================
+]]
+script_key = "QarqvKGzLvsrBMUxXvhdamTbPYeWlCnB";
 
 _G.GPROGRESS_MODE = "Hatch"
 _G.GZONE_TO = 999
