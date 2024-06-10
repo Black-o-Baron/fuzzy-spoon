@@ -42,7 +42,7 @@ _G.GPROGRESS_MODE = "Hatch"
 _G.GGFX_MODE = 1
 
 _G.GZONE_TO = 999
-_G.GHATCH_SPEED_MS = 1250
+_G.GHATCH_SPEED_MS = 1750
 
 _G.GPOTIONS = {"Damage","Coins","Lucky","Treasure Hunter","Diamonds","Walkspeed","The Cocktail","Huge"}
 _G.GPOTIONS_MAX_TIER = 10
