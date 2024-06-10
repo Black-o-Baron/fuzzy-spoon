@@ -19,12 +19,13 @@ _G.GHOLD_GIFTS = false
 _G.GHOLD_BUNDLES = false
 ========================================================================================================
 _G.GPROGRESS_MODE = "Hatch"
-_G.GZONE_TO = 999
-
-_G.GSPECIAL_HATCH = "Summer Sun Egg"
-_G.GHATCH_SPEED_MS = 1250
 
 _G.GGFX_MODE = 1
+
+_G.GZONE_TO = 999
+_G.GHATCH_SPEED_MS = 1250
+
+_G.GSPECIAL_HATCH = "Summer Sun Egg"
 
 _G.GPOTIONS = {"Damage","Coins","Lucky","Treasure Hunter","Diamonds","Walkspeed","The Cocktail","Huge"}
 _G.GPOTIONS_MAX_TIER = 10
@@ -34,14 +35,14 @@ _G.GHOLD_GIFTS = false
 _G.GHOLD_BUNDLES = false
 ========================================================================================================
 ]]
-script_key = "QarqvKGzLvsrBMUxXvhdamTbPYeWlCnB";
+script_key = "kcpnJkbjSBvxacLrlInfXXxnzOPDypjP";
 
 _G.GPROGRESS_MODE = "Hatch"
-_G.GZONE_TO = 999
-
-_G.GHATCH_SPEED_MS = 1250
 
 _G.GGFX_MODE = 1
+
+_G.GZONE_TO = 999
+_G.GHATCH_SPEED_MS = 1250
 
 _G.GPOTIONS = {"Damage","Coins","Lucky","Treasure Hunter","Diamonds","Walkspeed","The Cocktail","Huge"}
 _G.GPOTIONS_MAX_TIER = 10
