@@ -44,13 +44,13 @@ _G.GGFX_MODE = 2
 _G.GZONE_TO = 999
 _G.GHATCH_SPEED_MS = 1500
 
-_G.GSPECIAL_HATCH = "Hacker Secure Egg"
-
 _G.GPOTIONS = {"Damage","Coins","Lucky","Treasure Hunter","Diamonds","Walkspeed","The Cocktail","Huge"}
 _G.GPOTIONS_MAX_TIER = 10
 _G.GENCHANTS = {}
 
 _G.GHOLD_GIFTS = false
 _G.GHOLD_BUNDLES = false
+_G.GCOLLECT_VENDING_MACHINES = false
+_G.GCOLLECT_FREE_ITEMS = false
 
 loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/34915da4ad87a5028e1fd64efbe3543f.lua"))()
