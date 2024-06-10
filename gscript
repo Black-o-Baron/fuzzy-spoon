@@ -44,6 +44,8 @@ _G.GGFX_MODE = 2
 _G.GZONE_TO = 999
 _G.GHATCH_SPEED_MS = 1500
 
+_G.GSPECIAL_HATCH = "Hacker Secure Egg"
+
 _G.GPOTIONS = {"Damage","Coins","Lucky","Treasure Hunter","Diamonds","Walkspeed","The Cocktail","Huge"}
 _G.GPOTIONS_MAX_TIER = 10
 _G.GENCHANTS = {}
