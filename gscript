@@ -39,7 +39,7 @@ script_key = "kcpnJkbjSBvxacLrIInfXXxnzOPDypjP";
 
 _G.GPROGRESS_MODE = "Hatch"
 
-_G.GGFX_MODE = 2
+_G.GGFX_MODE = 1
 
 _G.GZONE_TO = 999
 _G.GHATCH_SPEED_MS = 1500
