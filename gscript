@@ -35,7 +35,7 @@ _G.GHOLD_GIFTS = false
 _G.GHOLD_BUNDLES = false
 ========================================================================================================
 ]]
-script_key = "kcpnJkbjSBvxacLrlInfXXxnzOPDypjP";
+script_key = "kcpnJkbjSBvxacLrIInfXXxnzOPDypjP";
 
 _G.GPROGRESS_MODE = "Hatch"
 
