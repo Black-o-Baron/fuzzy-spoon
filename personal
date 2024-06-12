@@ -1,4 +1,4 @@
-task.wait(22.5)
+task.wait(15)
 
 _G.autoTeleport = false
 _G.teleportToBestArea = true
@@ -62,7 +62,7 @@ if _G.teleportToBestArea then
 end
 
 if _G.potatoGraphics then
-    task.wait(60)
+    task.wait(15)
     pcall(function()
         for _, v in pairs(game:GetService("Workspace"):FindFirstChild("__THINGS"):GetChildren()) do
             if table.find({"ShinyRelics", "Ornaments", "Instances", "Ski Chairs"}, v.Name) then
