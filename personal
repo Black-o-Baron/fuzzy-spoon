@@ -1,4 +1,4 @@
-task.wait(30)
+task.wait(22.5)
 
 _G.autoTeleport = false
 _G.teleportToBestArea = true
