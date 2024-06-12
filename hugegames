@@ -1,4 +1,4 @@
-task.wait(45)
+task.wait(60)
 getgenv().AuthKey = "HUGE_i2nJpVqbawdA"
 getgenv().LoadSettings = {
     Example_Setting = Example_Value
