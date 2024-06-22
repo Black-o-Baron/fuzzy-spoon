@@ -2,7 +2,7 @@ task.wait(15)
 
 _G.autoTeleport = false
 _G.teleportToBestArea = true
-_G.potatoGraphics = true
+_G.potatoGraphics = false
 _G.customEggHatch = false
 
 local __THINGS = workspace:WaitForChild("__THINGS")
