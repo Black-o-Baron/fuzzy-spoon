@@ -1,58 +1,11 @@
 task.wait(15)
 
-_G.autoTeleport = false
-_G.teleportToBestArea = true
+_G.teleportToBestArea = false
 _G.potatoGraphics = false
 _G.customEggHatch = false
 
 local __THINGS = workspace:WaitForChild("__THINGS")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-
---[[
-if _G.autoTeleport then
-    local currentStage = ""
-
-    if not isfolder("AutoJoinPS") then
-        makefolder("AutoJoinPS")
-        task.wait(0.1)
-        writefile("AutoJoinPS/CurrentStage.txt", "")
-        task.wait(0.1)
-    else
-        local status, err = pcall(function ()
-            currentStage = readfile("AutoJoinPS/CurrentStage.txt")
-        end)
-        if not status then
-            writefile("AutoJoinPS/CurrentStage.txt", "")
-            task.wait(0.1)
-        end
-    end
-    
-    if game.PlaceId == 8737899170 then
-        if currentStage == "stage1done" then
-            writefile("AutoJoinPS/CurrentStage.txt", "stage2done")
-            task.wait(0.1)
-            game:Shutdown()
-        else
-            writefile("AutoJoinPS/CurrentStage.txt", "stage3done")
-            task.wait(0.1)
-            ReplicatedStorage.Network.World2Teleport:InvokeServer()
-        end
-    elseif game.PlaceId == 16498369169 then
-        local Players = game:GetService("Players")
-        local PlayersCount = #Players:GetPlayers()
-        if PlayersCount > 1 then
-            writefile("AutoJoinPS/CurrentStage.txt", "stage1done")
-            task.wait(0.1)
-            ReplicatedStorage.Network.World1Teleport:InvokeServer()
-        else
-            writefile("AutoJoinPS/CurrentStage.txt", "joinedPS")
-            task.wait(0.1)
-        end
-    else
-        game:Shutdown()
-    end
-end
-]]
 
 if _G.teleportToBestArea then
     task.wait(5)
