@@ -3,14 +3,12 @@ task.wait(15)
 _G.teleportToBestArea = false
 _G.potatoGraphics = false
 _G.customEggHatch = false
-
-local __THINGS = workspace:WaitForChild("__THINGS")
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
+_G.notifyNewHuge = true
 
 if _G.teleportToBestArea then
     task.wait(5)
     if game.PlaceId == 17503543197 then
-        ReplicatedStorage.Network.Teleports_RequestTeleport:InvokeServer("Hacker Mainframe")
+        game:GetService("ReplicatedStorage").Network.Teleports_RequestTeleport:InvokeServer("Hacker Mainframe")
     end
 end
 
@@ -135,31 +133,85 @@ if _G.potatoGraphics then
     end
 end
 
-if _G.customEggHatch then
-    task.wait(15)
-    local args = {}
-    
-    local function getEggId()
-        for i, v in pairs(__THINGS.CustomEggs:GetChildren()) do
-            pcall(function()
-                if not string.find(v.Name, "Highlight") and not string.find(v.Name, "Egg") then
-                    args = {
-                        [1] = v.Name,
-                        [2] = 103
-                    }
-                end
-            end)
-        end
-        return args[1]
-    end
-    
-    spawn(function()
-        repeat task.wait() until getEggId()
-        while true do                
-            pcall(function()
-                ReplicatedStorage.Network.CustomEggs_Hatch:InvokeServer(unpack(args))
-            end)
-            wait(0.5)
-        end
+local HttpService = game:GetService("HttpService")
+local encodedCollection
+local Collection
+
+while true do
+    pcall(function()
+        encodedCollection = request({Url = "https://biggamesapi.io/api/collection/Pets", Method = "GET",Headers = {["Content-Type"] = "application/json"}})
+        Collection = game:GetService("HttpService"):JSONDecode(encodedCollection.Body)
     end)
+    if Collection then break end
+    task.wait(5)
 end
+
+local Library = require(game.ReplicatedStorage:WaitForChild('Library'))
+
+local hugeCache = {}
+local function getAllHuge()
+    local total = 0
+    local save = Library.Save.Get().Inventory
+    local newHuges = {}
+    for i, v in pairs(save.Pet) do
+        if string.find(v.id, "Huge") then
+            total = total + 1
+            if not hugeCache[i] then
+                hugeCache[i] = v
+                newHuges[i] = v
+            end
+        end
+    end
+    return total, newHuges
+end
+
+local startingHuge = getAllHuge()
+
+local function update()
+    local currentHuge, newHuges = getAllHuge()
+
+    for i, v in newHuges do
+        local rbxImgId = ""
+        local prefix = ""
+        if v.pt == 1 then prefix = "Golden " end
+        if v.pt == 2 then prefix = "Rainbow " end
+        print(v.id)
+        for ii, vv in Collection.data do
+            if vv.configName == v.id then
+                local thumbnail = vv.configData.thumbnail
+                if v.pt == 1 then thumbnail = vv.configData.goldenThumbnail end
+                rbxImgId = string.sub(thumbnail, 14)
+            end
+        end
+        request({
+            Url = "https://discord.com/api/webhooks/1240508523901878332/omkBYaszkqIKet2yYmcBCpnjoTB0wNzRbb2cEDAlv1TrKJZDmfxzAqNCmVHUqmHBcC-2",
+            Method = "POST",
+            Headers = {
+            ["Content-Type"] = "application/json"
+            },
+            Body = HttpService:JSONEncode({
+            ["content"] = "<@798895543648387102>",
+            ["embeds"] = {
+                {
+                ["title"] = "You got a ".. prefix .. v.id,
+                ["color"] = 393165,
+                ["thumbnail"] = {
+                    ["url"] = "https://biggamesapi.io/image/" .. rbxImgId
+                }
+                }
+            },
+            ["attachments"] = {}
+            })
+        })
+        task.wait(10)
+    end
+end
+
+spawn(function()
+    while _G.notifyNewHuge do
+        wait(1)                
+        pcall(function()
+            update()
+        end)
+    end
+end)
