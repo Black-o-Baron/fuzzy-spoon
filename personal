@@ -133,6 +133,7 @@ if _G.potatoGraphics then
     end
 end
 
+local Players = game:GetService("Players")
 local HttpService = game:GetService("HttpService")
 local encodedCollection
 local Collection
@@ -146,6 +147,7 @@ while true do
     task.wait(5)
 end
 
+local LocalPlayer = Players.LocalPlayer
 local Library = require(game.ReplicatedStorage:WaitForChild('Library'))
 
 local hugeCache = {}
@@ -193,7 +195,7 @@ local function update()
             ["content"] = "<@798895543648387102>",
             ["embeds"] = {
                 {
-                ["title"] = "You got a ".. prefix .. v.id,
+                ["title"] = LocalPlayer.Name .. " hatched a " .. prefix .. v.id,
                 ["color"] = 393165,
                 ["thumbnail"] = {
                     ["url"] = "https://biggamesapi.io/image/" .. rbxImgId
