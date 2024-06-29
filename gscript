@@ -54,7 +54,8 @@ _G.GHOLD_BUNDLES = true
 
 _G.GMAX_ZONE_UPGRADE_COST = 10000000
 
-_G.GIGNORE_SLEDRACE = false
+_G.GIGNORE_SLEDRACE = true
+_G.GIGNORE_ALL_INSTANCES = true
 
 _G.GPOTIONS = {"Damage","Coins","Lucky","Treasure Hunter","Diamonds","Walkspeed","The Cocktail"}
 _G.GPOTIONS_MAX_TIER = 10
