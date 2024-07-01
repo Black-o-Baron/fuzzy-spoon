@@ -189,7 +189,7 @@ local function update()
         end
         if v.pt == 1 then
             prefix = prefix .. "Golden "
-        else if v.pt == 2 then
+        elseif v.pt == 2 then
             prefix = prefix .. "Rainbow "
         end
         for ii, vv in Collection.data do
