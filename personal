@@ -227,14 +227,10 @@ local function update()
             }
             game:GetService("ReplicatedStorage").Network.Locking_SetLocked:InvokeServer(unpack(args))
             task.wait(10)
-            local args = {
-                [1] = recipient,
-                [2] = prefix .. "Huge",
-                [3] = "Pet",
-                [4] = i,
-                [5] = 1
-            }
-            game:GetService("ReplicatedStorage").Network:FindFirstChild("Mailbox: Send"):InvokeServer(unpack(args))
+            repeat
+                local success = Library.Network.Invoke("Mailbox: Send", recipient, prefix .. "Huge", "Pet", i, 1)
+                task.wait(10)
+            until success
             task.wait(10)
         end
     end
