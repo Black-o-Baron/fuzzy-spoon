@@ -171,6 +171,7 @@ local startingHuge = getAllHuge()
 
 local function update()
     local currentHuge, newHuges = getAllHuge()
+    local args
 
     for i, v in newHuges do
         local rbxImgId = ""
@@ -180,6 +181,11 @@ local function update()
         if not v.sh and v.pt == 1 then
             if LocalPlayer.Name == "MythicalDealer" then
                 sendMail = false
+                args = {
+                    [1] = i,
+                    [2] = true
+                }
+                game:GetService("ReplicatedStorage").Network.Locking_SetLocked:InvokeServer(unpack(args))
             else
                 recipient = "MythicalDealer"
             end
@@ -221,7 +227,7 @@ local function update()
         })
         task.wait(10)
         if sendMail then
-            local args = {
+            args = {
                 [1] = i,
                 [2] = false
             }
