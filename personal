@@ -178,18 +178,6 @@ local function update()
         local prefix = ""
         local sendMail = true
         local recipient = "LoneByte"
-        if not v.sh and v.pt == 1 then
-            if LocalPlayer.Name == "MythicalDealer" then
-                sendMail = false
-                args = {
-                    [1] = i,
-                    [2] = true
-                }
-                game:GetService("ReplicatedStorage").Network.Locking_SetLocked:InvokeServer(unpack(args))
-            else
-                recipient = "MythicalDealer"
-            end
-        end
         if v.sh then
             prefix = "Shiny "
         end
