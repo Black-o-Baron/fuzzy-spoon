@@ -35,7 +35,7 @@ _G.GHOLD_GIFTS = false
 _G.GHOLD_BUNDLES = false
 ========================================================================================================
 ]]
-script_key = "mEgEOoUmwWnDkoPGePCZcMXmTwwxBEzw";
+script_key = "SphjYFjpONSmgOgMUnJrEtQSYChwZdDZ";
 
 _G.GPROGRESS_MODE = "Hybrid"
 
@@ -53,14 +53,14 @@ _G.GHOLD_GIFTS = true
 _G.GHOLD_BUNDLES = true
 
 _G.GWEBHOOK_USERID = "798895543648387102"
-_G.GWEBHOOK_LINK = "https://discord.com/api/webhooks/1256613705567961148/OjTAxVyv7qzst4qFfjeMmEZqNoX3sBs2LkYyOpc7swJPYsIsbV2JLkKX_gODpD-02UCx"
+_G.GWEBHOOK_LINK = "https://discord.com/api/webhooks/1261215506103275540/COg9pe39KVQDeBvqNV6ec-0kMqnuY6e9x7KWbBJ2BWpCU-4MwS-YTyP2FUVRxOiS-ujJ"
 
-_G.GMAX_ZONE_UPGRADE_COST = 10000000
+_G.GMAX_ZONE_UPGRADE_COST = 100000000
 
 _G.GIGNORE_SLEDRACE = true
 _G.GIGNORE_ALL_INSTANCES = false
 
-_G.GPOTIONS = {"Damage","Coins","Lucky","Treasure Hunter","Diamonds","Walkspeed","The Cocktail"}
+_G.GPOTIONS = {"Damage","Coins","Walkspeed"}
 _G.GPOTIONS_MAX_TIER = 10
 _G.GENCHANTS = {}
 
